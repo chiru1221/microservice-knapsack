@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option go_package = "github.com/chiru1221/microservice-knapsack/knapsack";
+
+package knapsack;
+
+service UpdateTable {
+    rpc Update (KnapsackDP) returns (Result) {}
+}
+
+message KnapsackDP {
+    int32 i = 1;
+    int32 w = 2;
+    int32 weight = 3;
+    int32 value = 4;
+    repeated DP dp = 5;
+}
+
+message DP {
+    repeated int32 row=1;
+}
+
+message Result {
+    int32 result = 1;
+}
+
+message Input {
+    int32 n = 1;
+    int32 w = 2;
+    repeated int32 weight = 3;
+    repeated int32 value = 4;
+}
